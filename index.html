@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Untuk Along ❤️</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    overflow: hidden;
+    font-family: "Segoe UI", sans-serif;
+    background: #ffdff1;
+}
+
+/* =========================
+   MAIN
+========================= */
+
+.scene {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffd6ec 0%,
+            #f8dfff 45%,
+            #d9f1ff 100%
+        );
+}
+
+/* =========================
+   CLOUDS
+========================= */
+
+.cloud {
+    position: absolute;
+    background: white;
+    border-radius: 100px;
+    opacity: .8;
+    filter: blur(.5px);
+}
+
+.cloud::before,
+.cloud::after {
+    content: "";
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+}
+
+.cloud::before {
+    width: 70px;
+    height: 70px;
+    top: -30px;
+    left: 30px;
+}
+
+.cloud::after {
+    width: 90px;
+    height: 90px;
+    top: -45px;
+    right: 25px;
+}
+
+.cloud1 {
+    width: 180px;
+    height: 45px;
+    top: 15%;
+    left: -30px;
+}
+
+.cloud2 {
+    width: 220px;
+    height: 50px;
+    top: 30%;
+    right: -50px;
+}
+
+.cloud3 {
+    width: 150px;
+    height: 40px;
+    top: 8%;
+    right: 25%;
+}
+
+/* =========================
+   DECORATIONS
+========================= */
+
+.heart {
+    position: absolute;
+    color: #ff6fae;
+    animation: float 3s ease-in-out infinite;
+}
+
+.h1 { left: 8%; top: 20%; font-size: 30px; }
+.h2 { right: 10%; top: 17%; font-size: 25px; animation-delay: .8s; }
+.h3 { left: 15%; bottom: 25%; font-size: 22px; animation-delay: 1.2s; }
+.h4 { right: 15%; bottom: 30%; font-size: 30px; animation-delay: .5s; }
+
+@keyframes float {
+    0%,100% {
+        transform: translateY(0) rotate(-5deg);
+    }
+
+    50% {
+        transform: translateY(-18px) rotate(8deg);
+    }
+}
+
+/* =========================
+   AIRPLANE
+========================= */
+
+.airplane {
+    position: absolute;
+    top: 15%;
+    left: -120px;
+
+    font-size: 55px;
+
+    animation:
+        fly 9s linear infinite;
+
+    filter: drop-shadow(0 5px 5px rgba(0,0,0,.15));
+}
+
+@keyframes fly {
+    from {
+        left: -120px;
+        transform: rotate(-3deg);
+    }
+
+    to {
+        left: 110%;
+        transform: rotate(-3deg);
+    }
+}
+
+/* airplane trail */
+
+.trail {
+    position: absolute;
+    top: 18%;
+    left: 5%;
+
+    width: 180px;
+    height: 2px;
+
+    border-top: 3px dashed rgba(255,255,255,.8);
+}
+
+/* =========================
+   INTRO CARD
+========================= */
+
+.intro {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 20;
+
+    transition: 1s ease;
+}
+
+.intro.hide {
+    opacity: 0;
+    transform: scale(1.2);
+    pointer-events: none;
+}
+
+.smallText {
+    font-size: 15px;
+    color: #9d4772;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+}
+
+.title {
+    font-size: clamp(38px, 8vw, 70px);
+    font-weight: 800;
+
+    color: #7c2857;
+
+    text-align: center;
+
+    text-shadow:
+        3px 3px 0 white,
+        0 8px 20px rgba(124,40,87,.15);
+}
+
+.subtitle {
+    margin-top: 12px;
+    color: #9d4772;
+    font-size: 16px;
+}
+
+/* button */
+
+.openBtn {
+    margin-top: 35px;
+
+    padding: 15px 32px;
+
+    border: none;
+    border-radius: 50px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff72b6,
+            #b76cff
+        );
+
+    color: white;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 25px rgba(183,108,255,.35);
+
+    transition: .3s;
+
+    animation: buttonPulse 2s infinite;
+}
+
+.openBtn:hover {
+    transform: scale(1.08);
+}
+
+@keyframes buttonPulse {
+    50% {
+        box-shadow:
+            0 12px 35px rgba(255,114,182,.55);
+    }
+}
+
+/* =========================
+   MAIN CARD
+========================= */
+
+.card {
+    position: absolute;
+
+    width: min(900px, 92vw);
+    min-height: 560px;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%) scale(.7);
+
+    opacity: 0;
+
+    background: rgba(255,255,255,.72);
+
+    border: 3px solid rgba(255,255,255,.8);
+
+    border-radius: 35px;
+
+    box-shadow:
+        0 25px 70px rgba(145,72,115,.2);
+
+    backdrop-filter: blur(15px);
+
+    padding: 40px;
+
+    z-index: 15;
+
+    transition: 1s ease;
+
+    pointer-events: none;
+}
+
+.card.show {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    pointer-events: auto;
+}
+
+/* =========================
+   CARD HEADER
+========================= */
+
+.cardHeader {
+    text-align: center;
+}
+
+.cardHeader h1 {
+    color: #812d5d;
+    font-size: clamp(28px, 5vw, 48px);
+}
+
+.cardHeader p {
+    color: #a34f78;
+    margin-top: 5px;
+}
+
+/* =========================
+   TRAVEL BADGES
+========================= */
+
+.badges {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 18px 0;
+    flex-wrap: wrap;
+}
+
+.badge {
+    padding: 8px 15px;
+    border-radius: 30px;
+
+    background: #fff;
+    color: #8d4168;
+
+    box-shadow: 0 5px 15px rgba(0,0,0,.06);
+
+    font-size: 13px;
+}
+
+/* =========================
+   SIBLING AREA
+========================= */
+
+.siblings {
+    position: relative;
+
+    width: 100%;
+    height: 260px;
+
+    margin-top: 10px;
+}
+
+/* ground */
+
+.ground {
+    position: absolute;
+
+    width: 85%;
+    height: 25px;
+
+    bottom: 10px;
+    left: 7.5%;
+
+    border-radius: 50%;
+
+    background: rgba(194,132,170,.15);
+}
+
+/* character */
+
+.person {
+    position: absolute;
+
+    bottom: 25px;
+
+    width: 145px;
+    height: 220px;
+}
+
+/* younger */
+
+.younger {
+    left: 25%;
+}
+
+/* older */
+
+.older {
+    right: 25%;
+}
+
+/* head */
+
+.person .head {
+    position: absolute;
+
+    width: 105px;
+    height: 105px;
+
+    top: 0;
+
+    border-radius: 50%;
+
+    background: #ffd4b8;
+
+    border: 3px solid #6b3650;
+
+    z-index: 3;
+}
+
+/* head position */
+
+.younger .head {
+    left: 20px;
+}
+
+.older .head {
+    left: 20px;
+}
+
+/* hair */
+
+.person .hair {
+    position: absolute;
+
+    width: 112px;
+    height: 72px;
+
+    top: -5px;
+    left: -4px;
+
+    background: #4b2948;
+
+    border-radius: 60% 60% 40% 40%;
+
+    z-index: 5;
+}
+
+/* hair side */
+
+.person .hair::before,
+.person .hair::after {
+    content: "";
+
+    position: absolute;
+
+    width: 25px;
+    height: 60px;
+
+    background: #4b2948;
+
+    top: 35px;
+
+    border-radius: 0 0 30px 30px;
+}
+
+.person .hair::before {
+    left: 5px;
+}
+
+.person .hair::after {
+    right: 5px;
+}
+
+/* eyes */
+
+.eye {
+    position: absolute;
+
+    width: 9px;
+    height: 14px;
+
+    background: #382031;
+
+    border-radius: 50%;
+
+    top: 57px;
+
+    z-index: 8;
+}
+
+.younger .eye1 {
+    left: 45px;
+}
+
+.younger .eye2 {
+    left: 72px;
+}
+
+.older .eye1 {
+    left: 45px;
+}
+
+.older .eye2 {
+    left: 72px;
+}
+
+/* blush */
+
+.blush {
+    position: absolute;
+
+    width: 20px;
+    height: 10px;
+
+    background: #ff829f;
+
+    border-radius: 50%;
+
+    opacity: .6;
+
+    top: 75px;
+
+    z-index: 8;
+}
+
+.younger .blush {
+    left: 77px;
+}
+
+.older .blush {
+    left: 10px;
+}
+
+/* body */
+
+.person .body {
+    position: absolute;
+
+    width: 100px;
+    height: 105px;
+
+    left: 22px;
+    top: 105px;
+
+    border-radius: 45px 45px 20px 20px;
+
+    z-index: 2;
+}
+
+/* younger clothes */
+
+.younger .body {
+    background:
+        linear-gradient(
+            135deg,
+            #ff91c5,
+            #ff5fa7
+        );
+}
+
+/* older clothes */
+
+.older .body {
+    background:
+        linear-gradient(
+            135deg,
+            #a78bfa,
+            #7c3aed
+        );
+}
+
+/* arms */
+
+.person .arm {
+    position: absolute;
+
+    width: 60px;
+    height: 18px;
+
+    background: #ffd4b8;
+
+    border-radius: 30px;
+
+    top: 130px;
+
+    z-index: 1;
+}
+
+/* younger arm reaching */
+
+.younger .arm {
+    right: -5px;
+    transform: rotate(-20deg);
+}
+
+/* older arm */
+
+.older .arm {
+    left: -5px;
+    transform: rotate(20deg);
+}
+
+/* =========================
+   SIBLING HEART
+========================= */
+
+.siblingHeart {
+    position: absolute;
+
+    left: 50%;
+    top: 75px;
+
+    transform: translateX(-50%);
+
+    font-size: 42px;
+
+    z-index: 20;
+
+    animation:
+        heartBeat 1.5s infinite;
+}
+
+@keyframes heartBeat {
+    0%,100% {
+        transform: translateX(-50%) scale(1);
+    }
+
+    50% {
+        transform: translateX(-50%) scale(1.25);
+    }
+}
+
+/* =========================
+   SPEECH
+========================= */
+
+.speech {
+    position: absolute;
+
+    background: white;
+
+    padding: 10px 16px;
+
+    border-radius: 20px;
+
+    color: #80365c;
+
+    font-weight: bold;
+
+    box-shadow: 0 5px 15px rgba(0,0,0,.08);
+
+    z-index: 30;
+
+    font-size: 13px;
+}
+
+.speech1 {
+    left: 15%;
+    top: 15px;
+}
+
+.speech2 {
+    right: 15%;
+    top: 35px;
+}
+
+/* =========================
+   MESSAGE
+========================= */
+
+.message {
+    text-align: center;
+
+    margin-top: 5px;
+
+    color: #713653;
+
+    line-height: 1.7;
+
+    font-size: 15px;
+}
+
+.message strong {
+    color: #b83272;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+    text-align: center;
+
+    margin-top: 15px;
+
+    font-size: 14px;
+
+    color: #a34f78;
+}
+
+/* =========================
+   CONFETTI
+========================= */
+
+.confetti {
+    position: absolute;
+
+    width: 8px;
+    height: 14px;
+
+    top: -30px;
+
+    animation: fall linear forwards;
+
+    z-index: 100;
+}
+
+@keyframes fall {
+    to {
+        transform:
+            translateY(110vh)
+            rotate(720deg);
+    }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:700px) {
+
+    .card {
+        padding: 25px 18px;
+        min-height: 560px;
+    }
+
+    .siblings {
+        transform: scale(.75);
+        transform-origin: center;
+        margin-top: -10px;
+        margin-bottom: -20px;
+    }
+
+    .younger {
+        left: 12%;
+    }
+
+    .older {
+        right: 12%;
+    }
+
+    .speech1 {
+        left: 3%;
+    }
+
+    .speech2 {
+        right: 3%;
+    }
+
+    .message {
+        font-size: 13px;
+    }
+
+    .footer {
+        font-size: 12px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="scene">
+
+    <!-- CLOUDS -->
+
+    <div class="cloud cloud1"></div>
+    <div class="cloud cloud2"></div>
+    <div class="cloud cloud3"></div>
+
+    <!-- AIRPLANE -->
+
+    <div class="airplane">✈️</div>
+    <div class="trail"></div>
+
+    <!-- FLOATING HEARTS -->
+
+    <div class="heart h1">💗</div>
+    <div class="heart h2">💖</div>
+    <div class="heart h3">💕</div>
+    <div class="heart h4">💗</div>
+
+
+    <!-- INTRO -->
+
+    <div class="intro" id="intro">
+
+        <div class="smallText">
+            ✨ A LITTLE SURPRISE FOR ALONG ✨
+        </div>
+
+        <div class="title">
+            Untuk Along 💗
+        </div>
+
+        <div class="subtitle">
+            Before you fly to Indonesia... 🇮🇩✈️
+        </div>
+
+        <button class="openBtn" onclick="openCard()">
+            BUKA SURPRISE 💌
+        </button>
+
+    </div>
+
+
+    <!-- CARD -->
+
+    <div class="card" id="card">
+
+        <div class="cardHeader">
+
+            <h1>
+                Selamat Pergi & Balik, Along! ✈️❤️
+            </h1>
+
+            <p>
+                🇲🇾 Malaysia → 🇮🇩 Indonesia
+            </p>
+
+        </div>
+
+
+        <!-- BADGES -->
+
+        <div class="badges">
+
+            <div class="badge">
+                ✈️ Safe Journey
+            </div>
+
+            <div class="badge">
+                🇮🇩 Indonesia
+            </div>
+
+            <div class="badge">
+                ❤️ Sibling Love
+            </div>
+
+            <div class="badge">
+                🧳 Have Fun!
+            </div>
+
+        </div>
+
+
+        <!-- CHARACTERS -->
+
+        <div class="siblings">
+
+            <div class="ground"></div>
+
+
+            <!-- SPEECH -->
+
+            <div class="speech speech1">
+                Jaga diri tau! 🥹
+            </div>
+
+            <div class="speech speech2">
+                Jangan lupa balik! 😂
+            </div>
+
+
+            <!-- ADIK -->
+
+            <div class="person younger">
+
+                <div class="head">
+
+                    <div class="hair"></div>
+
+                    <div class="eye eye1"></div>
+                    <div class="eye eye2"></div>
+
+                    <div class="blush"></div>
+
+                </div>
+
+                <div class="body"></div>
+
+                <div class="arm"></div>
+
+            </div>
+
+
+            <!-- ALONG -->
+
+            <div class="person older">
+
+                <div class="head">
+
+                    <div class="hair"></div>
+
+                    <div class="eye eye1"></div>
+                    <div class="eye eye2"></div>
+
+                    <div class="blush"></div>
+
+                </div>
+
+                <div class="body"></div>
+
+                <div class="arm"></div>
+
+            </div>
+
+
+            <!-- HEART BETWEEN THEM -->
+
+            <div class="siblingHeart">
+                💗
+            </div>
+
+        </div>
+
+
+        <!-- MESSAGE -->
+
+        <div class="message">
+
+            <strong>
+                Semoga segala urusan Along dipermudahkan,
+            </strong>
+
+            <br>
+
+            perjalanan pergi dan balik berjalan dengan lancar,
+            dan sentiasa dalam lindungan Allah. 🤲🏻✨
+
+            <br><br>
+
+            Jaga diri elok-elok dekat sana tauu 🥹❤️
+            <br>
+
+            Enjoy your trip, Along! 🇮🇩✨
+
+        </div>
+
+
+        <div class="footer">
+            Love you, Along! ❤️🫶🏻
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* =========================
+   OPEN CARD
+========================= */
+
+function openCard() {
+
+    document.getElementById("intro")
+        .classList.add("hide");
+
+    setTimeout(() => {
+
+        document.getElementById("card")
+            .classList.add("show");
+
+        createConfetti();
+
+    }, 500);
+}
+
+
+/* =========================
+   CONFETTI
+========================= */
+
+function createConfetti() {
+
+    const symbols = [
+        "💗",
+        "💕",
+        "✨",
+        "💖",
+        "🎀",
+        "🌸",
+        "⭐"
+    ];
+
+    for(let i = 0; i < 45; i++) {
+
+        const item =
+            document.createElement("div");
+
+        item.className = "confetti";
+
+        item.innerHTML =
+            symbols[
+                Math.floor(
+                    Math.random() * symbols.length
+                )
+            ];
+
+        item.style.left =
+            Math.random() * 100 + "%";
+
+        item.style.fontSize =
+            (12 + Math.random() * 15) + "px";
+
+        item.style.animationDuration =
+            (3 + Math.random() * 4) + "s";
+
+        item.style.animationDelay =
+            Math.random() * 2 + "s";
+
+        document.querySelector(".scene")
+            .appendChild(item);
+
+        setTimeout(() => {
+            item.remove();
+        }, 8000);
+    }
+}
+
+</script>
+
+</body>
+</html>
